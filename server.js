@@ -12,7 +12,7 @@ app.use(
     origin: "http://127.0.0.1:5500",
   })
 )
-
+const port = process.env.PORT || 3000;
 
 // Create a new Express app
 
@@ -180,4 +180,4 @@ const price_no= currency_id==="inr"? 80000: 1000;
   }
 })
 
-app.listen(3000)
+app.listen(port)
