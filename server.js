@@ -111,21 +111,21 @@ app.post('/stripe-webhook', async (req, res) => {
         subject: 'Thank you for purchasing PromptGenius',
         text: `Dear ${customerEmail},
 
-        Thank you for your purchase of PromptGenius! We're excited to have you as a customer and we're confident that you'll find our extension to be a valuable addition to your browser.
+      Thank you for your purchase of PromptGenius! We're excited to have you as a customer and we're confident that you'll find our extension to be a valuable addition to your browser.
         
-        To activate your copy of the extension, please use the following activation code: ${code}. This code can be entered into the extension in your browser.
-        To download the extension file, please use the following link: https://drive.google.com/drive/folders/13c4hs3wzzAf60mE7AXffFsK6ArR9EI3C?usp=share_link.
+      To activate your copy of the extension, please use the following activation code: ${code}. This code can be entered into the extension in your browser.
+      To download the extension file, please use the following link: https://drive.google.com/drive/folders/13c4hs3wzzAf60mE7AXffFsK6ArR9EI3C?usp=share_link.
         
         
-        If you have any trouble downloading the file, please let us know and we'll be happy to assist you.
+      If you have any trouble downloading the file, please let us know and we'll be happy to assist you.
         
-        We've also included a demo video to help you get started with the extension. You can watch the video here: https://www.loom.com/share/13e76f321fcf44cd886aeb400b50692e.
-        If you have any questions or issues with the extension, please don't hesitate to contact us. We're always happy to help!
+      We've also included a demo video to help you get started with the extension. You can watch the video here: https://www.loom.com/share/13e76f321fcf44cd886aeb400b50692e.
+      If you have any questions or issues with the extension, please don't hesitate to contact us. We're always happy to help!
         
-        Thank you again for your purchase.
+      Thank you again for your purchase.
         
-        Best regards,
-        Shammir Baig.
+      Best regards,
+      Shammir Baig.
         `
       }, (error, info) => {
         if (error) {
