@@ -134,7 +134,7 @@ app.post('/validate-activation-code', async (req, res) => {
   if (!activationCode) {
     res.json({ valid: false });
   } else if (activationCode.used) {
-    res.json({ valid: false, error: 'Activation code already used' });
+    res.json({ valid: true});
   } else {
     activationCode.used = true;
     await activationCode.save();
@@ -157,7 +157,6 @@ console.log(currency_id)
 
 const price_no= currency_id==="inr"? 80000: 1000;
     const session = await stripe.checkout.sessions.create({
-      payment_method_types: ["card"],
       mode: "payment",
       line_items: 
        [{
