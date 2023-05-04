@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 app.use(express.json())
 app.use(
   cors({
-    origin: "https://the-promptgenius.com",
+    origin: "*",
   })
 )
 const port = process.env.PORT || 3000;
@@ -56,11 +56,11 @@ const transporter = nodemailer.createTransport({
     }
   });
   app.get('/', (req, res) => {
-    console.log(req.headers)
+  
     const forwardedFor = req.headers['x-forwarded-for'];
-    console.log(forwardedFor)
+  
     const ipAddress = forwardedFor ? forwardedFor.split(',')[0] : req.socket.remoteAddress;
-    console.log(ipAddress)
+    
     const geo = geoip.lookup(ipAddress); 
 
     res.send(geo);
@@ -146,9 +146,9 @@ app.post("/create-checkout-session", async (req, res) => {
   try {
 
     const forwardedFor = req.headers['x-forwarded-for'];
-    console.log(forwardedFor)
+    
     const ipAddress = forwardedFor ? forwardedFor.split(',')[0] : req.socket.remoteAddress;
-    console.log(ipAddress)
+  
     const geo = geoip.lookup(ipAddress); 
 
 
@@ -171,8 +171,8 @@ const price_no= currency_id==="inr"? 80000: 1000;
           quantity: 1,
         }]
       ,
-      success_url: `${process.env.CLIENT_URL}/frontend/success.html`,
-      cancel_url: `${process.env.CLIENT_URL}/frontend/cancel.html`,
+      success_url: `${process.env.CLIENT_URL}/success.html`,
+      cancel_url: `${process.env.CLIENT_URL}/cancel.html`,
     })
     res.json({ url: session.url })
   } catch (e) {
