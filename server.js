@@ -65,6 +65,10 @@ const transporter = nodemailer.createTransport({
 
     res.send(geo);
   });
+
+  app.get('/health', (req, res) => {
+  res.status(200).send('200 OK');
+});
   
 app.get('/send-email', async(req, res) => {
     // create an email message
