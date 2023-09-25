@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Connect to the MongoDB database
-mongoose.connect('mongodb+srv://mshammirbaig:Shammir%403028@promptgenius.td8nz2a.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_STRING, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Define a schema for the activation codes
 const activationCodeSchema = new mongoose.Schema({
